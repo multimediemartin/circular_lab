@@ -2,29 +2,36 @@
 
 ---
 
-<div class="logo">
-  <a href="index.html">
-    <img src="../../public/logoImg.svg" alt="Logo" />
-  </a>
-</div>
-<div class="logo">
-  <a href="index.html">
-    <img src="../../public/logoText.svg" alt="Logo" />
-  </a>
-</div>
-<nav>
-  <ul class="menu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="index.html">Events</a></li>
-    <li><a href="index.html">Labs</a></li>
-  </ul>
-  <div class="burger">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
+<header>
+  <div class="logo">
+    <a href="index.html">
+      <img src="../../public/CircularLab_ekstern 1.png" alt="Logo" />
+    </a>
   </div>
-</nav>
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html">Events</a></li>
+      <li><a href="index.html">Labs</a></li>
+    </ul>
+    <div class="burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </nav>
+</header>
+
 <style>
+  header {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
   * {
     margin: 0;
     padding: 0;
@@ -91,13 +98,21 @@
     .menu {
       display: none;
     }
+
+    .menu a {
+      color: white;
+    }
+    .menu a:hover {
+      color: black;
+    }
+
     .burger {
       display: block;
       z-index: 2;
     }
 
     .burger.active .line {
-      background-color: white;
+      background-color: black;
     }
     .burger.active .line:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
@@ -120,8 +135,7 @@
       top: 60px;
       left: 0;
       width: 100%;
-      height: 457px;
-      padding-top: 70px;
+      height: 100vh;
       z-index: 1;
       background: var(--orange);
     }
@@ -133,21 +147,27 @@
     nav.active .menu a {
       font-size: 24px;
     }
+    header.active {
+      background-color: var(--orange);
+    }
   }
 </style>
 <script>
   const burger = document.querySelector(".burger");
   const nav = document.querySelector("nav");
   const menu = document.querySelector(".menu");
+  const header = document.querySelector("header");
 
   burger.addEventListener("click", burgerClick);
   function burgerClick() {
     burger.classList.toggle("active");
     nav.classList.toggle("active");
+    header.classList.toggle("active");
   }
   menu.addEventListener("click", menuClick);
   function menuClick() {
     burger.classList.remove("active");
     nav.classList.remove("active");
+    header.classList.toggle("active");
   }
 </script>
