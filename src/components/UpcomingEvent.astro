@@ -1,0 +1,44 @@
+---
+const Date = Astro.props.Date;
+const Header = Astro.props.Header;
+const Description = Astro.props.Description;
+const Link = Astro.props.Link;
+const Location = Astro.props.Location;
+---
+
+<div>
+  <a href={Link}>
+    <h2>{Header}</h2>
+    <h3>{Date}</h3>
+    <h3>{Location}</h3>
+    <p>
+      {Description}
+    </p>
+  </a>
+</div>
+<style>
+  div {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  div:hover {
+    background-color: var(--blue);
+  }
+  div:hover h2,
+  div:hover p {
+    color: white;
+  }
+  h2,
+  p {
+    color: black;
+  }
+  h3 {
+    color: var(--orange);
+  }
+</style>

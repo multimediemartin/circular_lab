@@ -1,0 +1,38 @@
+---
+const Img = Astro.props.Img;
+const Header = Astro.props.Header;
+const Description = Astro.props.Description;
+const Link = Astro.props.Link;
+---
+
+<div>
+  <a href={Link}>
+    <img src={Img} alt="" />
+    <h2>{Header}</h2>
+    <p>
+      {Description}
+    </p>
+  </a>
+</div>
+
+<style>
+  div {
+    background-color: #ffffff;
+    margin: 20px;
+  }
+  img {
+    border-radius: 20px;
+    aspect-ratio: 35/20;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  h2,
+  p {
+    color: black;
+  }
+</style>

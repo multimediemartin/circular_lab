@@ -1,24 +1,134 @@
 ---
 //@ts-nocheck
-import Layout from '../layouts/Layout.astro';
-const url= "https://ufptkqkooxsifybuvhqa.supabase.co/rest/v1/Supabase test?select=*";
-const key= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmcHRrcWtvb3hzaWZ5YnV2aHFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjg3MzcsImV4cCI6MjA1OTg0NDczN30.vww89uRuhls0B28ao0Z4OCfxZUGLDN1vbA3sysStrOg";
+import Layout from "../layouts/Layout.astro";
 
-const options = {
-	headers: {
-		apikey: key,
-	},
-};
+import Afdeling from "../components/Afdeling.astro";
+import UpcomingEvent from "../components/UpcomingEvent.astro";
+// const url= "https://ufptkqkooxsifybuvhqa.supabase.co/rest/v1/Supabase test?select=*";
+// const key= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmcHRrcWtvb3hzaWZ5YnV2aHFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjg3MzcsImV4cCI6MjA1OTg0NDczN30.vww89uRuhls0B28ao0Z4OCfxZUGLDN1vbA3sysStrOg";
 
-const data = await fetch(url,options).then((res)=>{return res.json();});
+// const options = {
+// 	headers: {
+// 		apikey: key,
+// 	},
+// };
 
-console.log(data);
+// const data = await fetch(url,options).then((res)=>{return res.json();});
 
-const formatDate = (dateString) => 
-    new Date(dateString).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
-	console.log(formatDate(data[0].event_date));
+// console.log(data);
+
+// const formatDate = (dateString) =>
+//     new Date(dateString).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+// 	console.log(formatDate(data[0].event_date));
 ---
 
 <Layout>
-	<Welcome />
+  <img class="heroImg" src="https://cataas.com/cat" alt="" />
+  <div class="hero">
+    <h1>Velkommen til KEA cirkular labs</h1>
+    <p>
+      Vores cirkulære labs arbejder med alt fra materialer til nye
+      forretningsideer, alt med et cirkulært mindset. De cirkulære labs på KEA
+      er de nyeste labs i vores lab strategi. De cirkulære labs består af
+      Circular Lab og Circular Material Lab. Der vil løbende blive tilføjet
+      flere labs, der alle arbejder med det cirkulære mindset, men med
+      forskellige fokuspunkter.
+    </p>
+  </div>
+
+  <Afdeling
+    Img="https://cataas.com/cat"
+    Header="Cirkular lab"
+    Description=" Hos Circular Lab bygger vi KEA Circular Community, hvor vi afprøver forretningsmodeller i teori og praksis gennem workshops, foredrag, caféer mm."
+  />
+
+  <Afdeling
+    Img="https://cataas.com/cat"
+    Header="Cirkular Material lab"
+    Description="Kom forbi Cirkular Material Lab, hvor der er plads og rum til at udforske, eksperimentere og arbejde med materialer i alle afskygninger."
+  />
+
+  <Afdeling
+    Img="https://cataas.com/cat"
+    Header="Material Connexion"
+    Description="  Materialer skal opleves og røres, derfor er Boksen en stor kontinuerlig walk-in Boks, der indeholder en samling af råmaterialer og giver et indblik i, hvordan et materiale ser ud, følelsen og lugten; før, under og efter det indgår i en proces."
+    Link=""
+  />
+
+  <div class="divider"></div>
+
+  <div class="upcomingEvents">
+    <h2>Upcoming event</h2>
+    <UpcomingEvent
+      Header="Event title"
+      Date="24/04/2025"
+      Location="Cirkular lab"
+      Description="  Materialer skal opleves og røres, derfor er Boksen en stor kontinuerlig walk-in Boks, der indeholder en samling af råmaterialer og giver et indblik i, hvordan et materiale ser ud, følelsen og lugten; før, under og efter det indgår i en proces."
+      Link=""
+    />
+    <h3>calendar</h3>
+    <img src="https://cataas.com/cat" alt="" />
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla auctor
+      ligula vel sem molestie convallis. Aliquam quam dolor, hendrerit quis
+      imperdiet nec, lacinia in nunc. Nunc a lectus ut mi semper hendrerit. Duis
+      feugiat hendrerit placerat. Donec metus enim, ultrices eget turpis ac,
+      volutpat finibus odio. Etiam dignissim, sapien a ullamcorper fermentum,
+      lorem mi ullamcorper risus, a pulvinar turpis justo nec eros. Integer
+      lacus magna, pharetra et velit ut, efficitur iaculis erat. Donec mattis
+      vel quam id tempor. Duis dictum, arcu at ornare pulvinar, dui nibh
+      vulputate sem, ut hendrerit arcu lectus vulputate diam. Proin feugiat
+      consectetur tellus at consectetur.
+    </p>
+  </div>
+
+  <!-- instagram feed -->
+  <div class="instagramFeed">
+    <img src="https://cataas.com/cat" alt="" />
+    <img src="https://cataas.com/cat" alt="" />
+    <img src="https://cataas.com/cat" alt="" />
+    <img src="https://cataas.com/cat" alt="" />
+  </div>
 </Layout>
+<style>
+  .upcomingEvents {
+    background-color: var(--dark);
+    padding: 20px 0px;
+  }
+
+  .upcomingEvents img {
+    border-radius: 20px;
+    margin: 20px;
+  }
+  .heroImg {
+    width: 100%;
+    height: 40vw;
+    object-fit: cover;
+  }
+
+  .hero {
+    background-color: var(--blue);
+    color: white;
+    padding: 20px;
+  }
+  .instagramFeed {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  h2 {
+    background-color: var(--red);
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin: 20px;
+    text-transform: uppercase;
+  }
+  h3 {
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 5px;
+    margin: 20px;
+    text-transform: uppercase;
+  }
+</style>
