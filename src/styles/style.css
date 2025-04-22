@@ -13,11 +13,19 @@ img {
 }
 
 html {
+  /* colers */
   --orange: #ff671f;
   --dark: #242424;
   --blue: #003b5c;
   --red: #ea5045;
-  font-family: sans-serif;
+  --white: #ffffff;
+  --black: #000000;
+  /* numbers */
+  --transition: 0.2s;
+}
+section {
+  padding: 20px;
+  margin: 0 auto;
 }
 
 .divider {
@@ -28,4 +36,33 @@ html {
 
 h1 {
   text-transform: capitalize;
+  text-align: center;
+  font-family: Helvetica-Neue-lt-std, sans-serif;
+}
+h2 {
+  text-transform: capitalize;
+  text-align: center;
+}
+
+p {
+  font-family: Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px; /* 150% */
+  padding: 0px 0px 20px 0px;
+}
+
+/* FONTE */
+
+@font-face {
+  font-family: "GT-Walsheim";
+  src: url(../../public/font/GT-Walsheim-Black-Trial-BF651b7fc736a5b.woff2);
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Helvetica-Neue-lt-std";
+  src: url(../../public/font/helveticaneueltstd_blk.woff2);
+  font-weight: normal;
 }

@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+---
+
+<Layout>
+  <section>
+    <Button Link="events.html" Text=" ← back to list" Type="two" />
+    <h1>Syværksted</h1>
+    <div class="grid_2-1">
+      <h2>24/02/2025, 14:30-16:30</h2>
+      <h2>A129 cirkular lab</h2>
+      <div class="right">
+        <img src="https://cataas.com/cat" alt="" />
+      </div>
+      <div class="left">
+        <p>
+          Sidder du med et projekt/eller forløb, hvor I skal tænke cirkulært? Er
+          du i tvivl om, hvordan du designer dine produkter, så de er optimeret
+          til cirkulære forretningsmodeller? Så kom ned i labbet og få råd og
+          vejledning til dit projekt.
+        </p>
+        <p>
+          Vi hjælper både med materialer, design, forretningsmodeller,
+          strategier og alt der skal til for at skabe den bedste cirkularitet –
+          er du i tvivl om vi kan hjælpe med netop din udfordring, så kom forbi
+          og lad os undersøge det sammen.
+        </p>
+        <p>
+          Vejledning i labbet er muligt i de bemandede åbningstider
+          <a href=""> (se kalender) </a>
+          eller send en mail til lab manager
+          <a href=""> Nikolaj Storm på circular@kea.dk </a>
+          og book en tid.
+        </p>
+        <Button Link="" Text="sign up for event" Type="three" />
+      </div>
+    </div>
+    <img class="img" src="https://cataas.com/cat" alt="" />
+  </section>
+
+  <style>
+    h1 {
+      text-align: left;
+      color: var(--black);
+      font-family: "Helvetica-Neue-LT-Std";
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: normal;
+    }
+    h2 {
+      text-align: left;
+      color: var(--orange);
+      font-family: "Helvetica-Neue-LT-Std";
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: normal;
+    }
+    a {
+      text-decoration: none;
+      color: var(--orange);
+    }
+    .img {
+      border-radius: 20px;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      max-height: 428px;
+    }
+    section {
+      max-width: 1034px;
+      margin: 0 auto;
+    }
+    .grid_2-1 {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    @media (min-width: 801px) {
+      .grid_2-1 {
+        grid-template-columns: 60% 40%;
+      }
+    
+    .left {
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
+    .right {
+      grid-column: 2/3
+      grid-row: 2/3;
+    }
+}
+  </style>
+</Layout>

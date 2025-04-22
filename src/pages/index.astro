@@ -24,7 +24,7 @@ import UpcomingEvent from "../components/UpcomingEvent.astro";
 
 <Layout>
   <img class="heroImg" src="https://cataas.com/cat" alt="" />
-  <div class="hero">
+  <section class="hero">
     <h1>Velkommen til KEA cirkular labs</h1>
     <p>
       Vores cirkulære labs arbejder med alt fra materialer til nye
@@ -34,40 +34,46 @@ import UpcomingEvent from "../components/UpcomingEvent.astro";
       flere labs, der alle arbejder med det cirkulære mindset, men med
       forskellige fokuspunkter.
     </p>
-  </div>
+  </section>
+  <section class="grid_1-1-1">
+    <Afdeling
+      Img="https://cataas.com/cat"
+      Header="Cirkular lab"
+      Description=" Hos Circular Lab bygger vi KEA Circular Community, hvor vi afprøver forretningsmodeller i teori og praksis gennem workshops, foredrag, caféer mm."
+      Link=""
+    />
 
-  <Afdeling
-    Img="https://cataas.com/cat"
-    Header="Cirkular lab"
-    Description=" Hos Circular Lab bygger vi KEA Circular Community, hvor vi afprøver forretningsmodeller i teori og praksis gennem workshops, foredrag, caféer mm."
-  />
+    <Afdeling
+      Img="https://cataas.com/cat"
+      Header="Cirkular Material lab"
+      Description="Kom forbi Cirkular Material Lab, hvor der er plads og rum til at udforske, eksperimentere og arbejde med materialer i alle afskygninger."
+      Link=""
+    />
 
-  <Afdeling
-    Img="https://cataas.com/cat"
-    Header="Cirkular Material lab"
-    Description="Kom forbi Cirkular Material Lab, hvor der er plads og rum til at udforske, eksperimentere og arbejde med materialer i alle afskygninger."
-  />
-
-  <Afdeling
-    Img="https://cataas.com/cat"
-    Header="Material Connexion"
-    Description="  Materialer skal opleves og røres, derfor er Boksen en stor kontinuerlig walk-in Boks, der indeholder en samling af råmaterialer og giver et indblik i, hvordan et materiale ser ud, følelsen og lugten; før, under og efter det indgår i en proces."
-    Link=""
-  />
-
-  <div class="divider"></div>
-
-  <div class="upcomingEvents">
-    <h2>Upcoming event</h2>
-    <UpcomingEvent
-      Header="Event title"
-      Date="24/04/2025"
-      Location="Cirkular lab"
+    <Afdeling
+      Img="https://cataas.com/cat"
+      Header="Material Connexion"
       Description="  Materialer skal opleves og røres, derfor er Boksen en stor kontinuerlig walk-in Boks, der indeholder en samling af råmaterialer og giver et indblik i, hvordan et materiale ser ud, følelsen og lugten; før, under og efter det indgår i en proces."
       Link=""
     />
-    <h3>calendar</h3>
-    <img src="https://cataas.com/cat" alt="" />
+  </section>
+  <div class="divider"></div>
+
+  <section class="upcomingEvents">
+    <div>
+      <h2>Upcoming event</h2>
+      <UpcomingEvent
+        Header="Event title"
+        Date="24/04/2025"
+        Location="Cirkular lab"
+        Description="  Materialer skal opleves og røres, derfor er Boksen en stor kontinuerlig walk-in Boks, der indeholder en samling af råmaterialer og giver et indblik i, hvordan et materiale ser ud, følelsen og lugten; før, under og efter det indgår i en proces."
+        Link=""
+      />
+    </div>
+    <div>
+      <h3>calendar</h3>
+      <img src="https://cataas.com/cat" alt="" />
+    </div>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla auctor
       ligula vel sem molestie convallis. Aliquam quam dolor, hendrerit quis
@@ -80,30 +86,34 @@ import UpcomingEvent from "../components/UpcomingEvent.astro";
       vulputate sem, ut hendrerit arcu lectus vulputate diam. Proin feugiat
       consectetur tellus at consectetur.
     </p>
-  </div>
+  </section>
 
   <!-- instagram feed -->
-  <div class="instagramFeed">
+  <section class="instagramFeed">
     <img src="https://cataas.com/cat" alt="" />
     <img src="https://cataas.com/cat" alt="" />
     <img src="https://cataas.com/cat" alt="" />
     <img src="https://cataas.com/cat" alt="" />
-  </div>
+  </section>
 </Layout>
 <style>
   .upcomingEvents {
     background-color: var(--dark);
-    padding: 20px 0px;
   }
 
   .upcomingEvents img {
     border-radius: 20px;
-    margin: 20px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+  .upcomingEvents p {
+    color: white;
   }
   .heroImg {
     width: 100%;
     height: 40vw;
     object-fit: cover;
+    max-height: 270px;
   }
 
   .hero {
@@ -130,5 +140,19 @@ import UpcomingEvent from "../components/UpcomingEvent.astro";
     padding: 5px;
     margin: 20px;
     text-transform: uppercase;
+  }
+  @media (min-width: 801px) {
+    .grid_1-1-1 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .upcomingEvents {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 2fr 1fr;
+    }
+    .upcomingEvents p {
+      grid-column: 1/3;
+    }
   }
 </style>

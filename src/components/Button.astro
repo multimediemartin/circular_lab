@@ -1,0 +1,68 @@
+---
+const Type = Astro.props.Type;
+const Text = Astro.props.Text;
+const Link = Astro.props.Link;
+---
+
+<div class="button">
+  <div class={Type}>
+    <a href={Link}>
+      <h2>{Text}</h2>
+    </a>
+  </div>
+</div>
+<style>
+  * {
+    font-family: Helvetica-Neue-lt-std, sans-serif;
+  }
+
+  .button {
+    display: grid;
+    margin: 20px;
+  }
+  .one,
+  .two {
+    padding: 12px 25px;
+    border: solid;
+    border-color: var(--orange);
+    border-radius: 80px;
+    place-self: center;
+    transition: var(--transition);
+  }
+  .one a,
+  .two a {
+    color: var(--orange);
+    text-decoration: none;
+  }
+  .one:hover,
+  .two:hover,
+  .three:hover {
+    background-color: var(--orange);
+    border-color: var(--orange);
+  }
+  .one:hover a {
+    color: var(--blue);
+  }
+
+  /* variation 2 */
+
+  .two:hover a,
+  .three:hover a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .three {
+    padding: 12px 25px;
+    border: solid;
+    border-color: var(--blue);
+    color: var(--blue);
+    border-radius: 80px;
+    place-self: center;
+    transition: var(--transition);
+  }
+  .three a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+</style>
