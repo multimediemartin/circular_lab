@@ -1,10 +1,10 @@
 ---
+//@ts-nocheck
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Button from "../components/Button.astro";
 import DropDown from "../components/DropDown.astro";
 
-//@ts-nocheck
 const url =
   "https://ufptkqkooxsifybuvhqa.supabase.co/rest/v1/Circular%20Lab%20Events";
 const key =
@@ -184,6 +184,7 @@ console.log(formatDate(data[0].event_date));
       .aboutUs {
         grid-template-columns: repeat(7, 1fr);
         grid-template-rows: 1fr auto;
+        margin-bottom: 20px;
       }
       .box1 {
         grid-column: 1/5;

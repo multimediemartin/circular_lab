@@ -29,32 +29,7 @@ const Title = Astro.props.Title;
     />
 
     <title>{Title}</title>
-    <!-- <script>
-      const url =
-        "https://ufptkqkooxsifybuvhqa.supabase.co/rest/v1/Circular%20Lab%20Events";
-      const key =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmcHRrcWtvb3hzaWZ5YnV2aHFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjg3MzcsImV4cCI6MjA1OTg0NDczN30.vww89uRuhls0B28ao0Z4OCfxZUGLDN1vbA3sysStrOg";
 
-      const options = {
-        headers: {
-          apikey: key,
-        },
-      };
-
-      const data = await fetch(url, options).then((res) => {
-        return res.json();
-      });
-
-      console.log(data);
-
-      const formatDate = (dateString) =>
-        new Date(dateString).toLocaleDateString(undefined, {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        });
-      console.log(formatDate(data[0].event_date));
-    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </head>
   <body>

@@ -27,7 +27,8 @@ const Heading = Astro.props.Heading;
     text-transform: uppercase;
   }
   .dropDownContainer {
-    grid-row: span 4;
+    display: grid;
+    grid-template-rows: 50px 1fr;
     background-color: #003b5c26;
     border-radius: 20px;
     padding: 20px;
@@ -46,22 +47,18 @@ const Heading = Astro.props.Heading;
 
   @media (min-width: 801px) {
     .dropDownContainer {
-      grid-template-rows: subgrid;
       height: 100%;
+    }
+    .dropDownContent {
+      display: block;
     }
   }
 </style>
 <script define:vars={{ Id }}>
-  console.log(Id);
-
   document.querySelector("#" + Id).addEventListener("click", toggleDropDown);
   function toggleDropDown() {
     document
       .querySelector("#" + Id + " .dropDownContent")
       .classList.toggle("active");
-    console.log("erfkln");
-    console.log(
-      document.querySelector("#" + Id + " .dropDownContent").classList,
-    );
   }
 </script>
