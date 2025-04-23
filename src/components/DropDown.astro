@@ -4,7 +4,7 @@ const Id = Astro.props.Id;
 const Heading = Astro.props.Heading;
 ---
 
-<div onclick="toggleDropdown()" class="dropDownContainer">
+<div class="dropDownContainer" id={Id}>
   <h3 class={Type}>{Heading}</h3>
   <div class="dropDownContent">
     <slot />
@@ -27,7 +27,8 @@ const Heading = Astro.props.Heading;
     text-transform: uppercase;
   }
   .dropDownContainer {
-    grid-row: span 4;
+    display: grid;
+    grid-template-rows: 50px 1fr;
     background-color: #003b5c26;
     border-radius: 20px;
     padding: 20px;
@@ -38,14 +39,26 @@ const Heading = Astro.props.Heading;
   }
   .dropDownContent {
     padding: 20px 0px;
-    /* display: none; */
+    display: none;
+  }
+  .active {
+    display: block;
   }
 
   @media (min-width: 801px) {
     .dropDownContainer {
-      grid-template-rows: subgrid;
       height: 100%;
+    }
+    .dropDownContent {
+      display: block;
     }
   }
 </style>
-<script></script>
+<script define:vars={{ Id }}>
+  document.querySelector("#" + Id).addEventListener("click", toggleDropDown);
+  function toggleDropDown() {
+    document
+      .querySelector("#" + Id + " .dropDownContent")
+      .classList.toggle("active");
+  }
+</script>
