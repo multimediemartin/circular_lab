@@ -55,7 +55,7 @@ console.log(formatDate(data[0].event_date));
     <!-- drop downs -->
     <div class="aboutUs">
       <div class="box1">
-        <DropDown Type="red" Heading="Vejledning">
+        <DropDown Type="red" Heading="Vejledning" Id="Vejledning">
           <p>
             Sidder du med et projekt/eller forløb, hvor I skal tænke cirkulært?
             Er du i tvivl om, hvordan du designer dine produkter, så de er
@@ -77,7 +77,7 @@ console.log(formatDate(data[0].event_date));
         </DropDown>
       </div>
       <div class="box2">
-        <DropDown Type="white" Heading="Skills">
+        <DropDown Type="white" Heading="Skills" Id="skills">
           <p>
             Cirkularitet handler om nye forretningsmuligheder – men kræver også
             mange værktøjer som reparation, opgraderinger, redesigns og meget
@@ -96,7 +96,7 @@ console.log(formatDate(data[0].event_date));
         </DropDown>
       </div>
       <div class="box3">
-        <DropDown Type="red" Heading="Ivaeksaetteri">
+        <DropDown Type="red" Heading="Ivaeksaetteri" Id="ivaeksaetteri">
           <p>
             Er du iværksætter med din egen virksomhed, eller en del af KEAs
             Startup Hub, og ønsker at undersøge mulighederne for at gøre din
@@ -112,7 +112,7 @@ console.log(formatDate(data[0].event_date));
         </DropDown>
       </div>
       <div class="box4">
-        <DropDown Type="white" Heading="Workshop">
+        <DropDown Type="white" Heading="Workshop" Id="workshop">
           <p>
             Er du underviser og har brug for et cirkulært indspark i et forløb
             eller crash course for dine studerende uanset programområde? Er I en
@@ -130,7 +130,7 @@ console.log(formatDate(data[0].event_date));
         </DropDown>
       </div>
       <div class="box5">
-        <DropDown Type="red" Heading="Foredrag">
+        <DropDown Type="red" Heading="Foredrag" Id="foredrag">
           <p>
             Der sker rigtig meget inden for cirkularitet netop nu. Derfor holder
             vi også løbende foredrag og events med relevante aktører fra
@@ -151,7 +151,7 @@ console.log(formatDate(data[0].event_date));
         </DropDown>
       </div>
       <div class="box6">
-        <DropDown Type="white" Heading="Forskning">
+        <DropDown Type="white" Heading="Forskning" Id="forskning">
           <p>
             Hos Circular Lab holder vi os opdaterede på den nyeste forskning
             inden for cirkularitet. Mange virksomheder og brancher er netop i
@@ -183,7 +183,7 @@ console.log(formatDate(data[0].event_date));
       }
       .aboutUs {
         grid-template-columns: repeat(7, 1fr);
-        /* grid-template-rows: 1fr auto; */
+        grid-template-rows: 1fr auto;
       }
       .box1 {
         grid-column: 1/5;
