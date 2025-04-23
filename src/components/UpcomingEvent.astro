@@ -9,18 +9,17 @@ const Location = Astro.props.Location;
 <div>
   <a href={Link}>
     <h2>{Header}</h2>
-    <h3>{Date}</h3>
-    <h3>{Location}</h3>
-    <p>
-      {Description}
-    </p>
-  </a>
+    <h3>{Date} - {Location}</h3></a
+  >
+  <p>
+    {Description}
+  </p>
 </div>
+
 <style>
   div {
     background-color: var(--white);
     padding: 20px;
-    margin: 20px;
     border-radius: 20px;
     transition: var(--transition);
   }
@@ -41,5 +40,11 @@ const Location = Astro.props.Location;
   }
   h3 {
     color: var(--orange);
+    font-family: Helvetica-Neue-lt-std, sans-serif;
+    font-size: 24px;
+  }
+  h2 {
+    font-family: Helvetica-Neue-lt-std, sans-serif;
+    text-align: left;
   }
 </style>
