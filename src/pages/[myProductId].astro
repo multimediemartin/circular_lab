@@ -1,6 +1,6 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Button from '../../components/Button.astro';
+import Layout from "../layouts/Layout.astro";
+import Button from '../components/Button.astro';
 //@ts-nocheck
 
 
@@ -38,13 +38,13 @@ const { myProduct } = Astro.props;
 
 <Layout Title={myProduct.event_title}>
   <section>
-      <Button Link="../events.html" Text=" ← back to list" Type="two" />
+      <Button Link="events.html" Text=" ← back to list" Type="two" />
     <h1>{myProduct.event_title}</h1>
     <div class="grid_2-1">
       <h2>{myProduct.event_date}, {myProduct.event_start}-{myProduct.event_end}</h2>
       <h2>{myProduct.event_place}</h2>
       <div class="right">
-        <img src="https://cataas.com/cat" alt="" />
+        <img src="../../public/map.webp" alt="" />
       </div>
       <div class="left">
         <span set:html={myProduct.event_long_description} />
@@ -52,7 +52,7 @@ const { myProduct } = Astro.props;
         <Button Link="" Text="sign up for event" Type="three" />
       </div>
     </div>
-    <img class="img" src="https://cataas.com/cat" alt="" />
+    <img class="img" src="../../../public/moodPicture.webp" alt="" />
   </section>
 
   <style>

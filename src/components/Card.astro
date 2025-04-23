@@ -7,7 +7,7 @@ const { product } = Astro.props;
 ---
 
 <div>
-  <a href=`/events/${product.id}`>
+  <a href=`${product.id}`>
     <h2>{product.event_title}</h2>
     <h3>{product.event_date}</h3>
     <p>
