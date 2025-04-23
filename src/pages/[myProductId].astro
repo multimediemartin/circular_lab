@@ -44,7 +44,7 @@ const { myProduct } = Astro.props;
       <h2>{myProduct.event_date}, {myProduct.event_start}-{myProduct.event_end}</h2>
       <h2>{myProduct.event_place}</h2>
       <div class="right">
-        <img src="../../public/map.webp" alt="" />
+        <img src="map.webp" alt="" />
       </div>
       <div class="left">
         <span set:html={myProduct.event_long_description} />
@@ -52,7 +52,7 @@ const { myProduct } = Astro.props;
         <Button Link="" Text="sign up for event" Type="three" />
       </div>
     </div>
-    <img class="img" src="../../../public/moodPicture.webp" alt="" />
+    <img class="img" src="moodPicture.webp" alt="" />
   </section>
 
   <style>
