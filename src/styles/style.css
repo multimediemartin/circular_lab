@@ -57,6 +57,23 @@ p {
   margin: 0 auto;
 }
 
+.red {
+  place-self: center;
+  padding: 10px;
+  background-color: var(--red);
+  color: white;
+  text-transform: uppercase;
+  font-family: "GT-Walsheim";
+}
+.white {
+  place-self: center;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  text-transform: uppercase;
+  font-family: "GT-Walsheim";
+}
+
 @media (min-width: 801px) {
   p,
   dd,

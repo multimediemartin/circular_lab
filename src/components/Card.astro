@@ -3,14 +3,15 @@ const Date = Astro.props.Date;
 const Header = Astro.props.Header;
 const Description = Astro.props.Description;
 const Link = Astro.props.Link;
+const { product } = Astro.props;
 ---
 
 <div>
-  <a href={Link}>
-    <h2>{Header}</h2>
-    <h3>{Date}</h3>
+  <a href=`${product.id}`>
+    <h2>{product.event_title}</h2>
+    <h3>{product.event_date}</h3>
     <p>
-      {Description}
+      {product.event_short_description}
     </p>
   </a>
 </div>

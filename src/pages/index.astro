@@ -1,33 +1,40 @@
 ---
 //@ts-nocheck
-
-import Layout from '../layouts/Layout.astro';
-const url= "https://ufptkqkooxsifybuvhqa.supabase.co/rest/v1/Circular Lab Events?select=*";
-const key= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmcHRrcWtvb3hzaWZ5YnV2aHFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjg3MzcsImV4cCI6MjA1OTg0NDczN30.vww89uRuhls0B28ao0Z4OCfxZUGLDN1vbA3sysStrOg";
+import Layout from "../layouts/Layout.astro";
 
 import Department from "../components/Department.astro";
 import UpcomingEvent from "../components/UpcomingEvent.astro";
 import Department from "../components/Department.astro";
-// const url= "https://ufptkqkooxsifybuvhqa.supabase.co/rest/v1/Supabase test?select=*";
-// const key= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmcHRrcWtvb3hzaWZ5YnV2aHFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjg3MzcsImV4cCI6MjA1OTg0NDczN30.vww89uRuhls0B28ao0Z4OCfxZUGLDN1vbA3sysStrOg";
 
-// const options = {
-// 	headers: {
-// 		apikey: key,
-// 	},
-// };
+const url =
+  "https://ufptkqkooxsifybuvhqa.supabase.co/rest/v1/Circular%20Lab%20Events";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmcHRrcWtvb3hzaWZ5YnV2aHFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjg3MzcsImV4cCI6MjA1OTg0NDczN30.vww89uRuhls0B28ao0Z4OCfxZUGLDN1vbA3sysStrOg";
 
-// const data = await fetch(url,options).then((res)=>{return res.json();});
+const options = {
+  headers: {
+    apikey: key,
+  },
+};
 
-// console.log(data);
+const data = await fetch(url, options).then((res) => {
+  return res.json();
+});
 
-// const formatDate = (dateString) =>
-//     new Date(dateString).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
-// 	console.log(formatDate(data[0].event_date));
+console.log(data);
+console.log("oirjgwjio");
+
+const formatDate = (dateString) =>
+  new Date(dateString).toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+console.log(formatDate(data[0].event_date));
 ---
 
-<Layout>
-  <img class="heroImg" src="https://cataas.com/cat" alt="" />
+<Layout Title="KEA Cirkular lab">
+  <img class="heroImg" src="../../public/hero.webp" alt="" />
   <section class="hero">
     <div class="max_width">
       <h1>Velkommen til KEA cirkular labs</h1>
@@ -43,21 +50,21 @@ import Department from "../components/Department.astro";
   </section>
   <section class="grid_1-1-1 max_width">
     <Department
-      Img="https://cataas.com/cat"
-      Header="Cirkular lab"
+      Img="../../public/cirkularLab.webp"
+      Header="Circular lab"
       Description=" Hos Circular Lab bygger vi KEA Circular Community, hvor vi afprøver forretningsmodeller i teori og praksis gennem workshops, foredrag, caféer mm."
       Link=""
     />
 
     <Department
-      Img="https://cataas.com/cat"
-      Header="Cirkular Material lab"
+      Img="../../public/cirkularMaterialLab.webp"
+      Header="Circular Material lab"
       Description="Kom forbi Cirkular Material Lab, hvor der er plads og rum til at udforske, eksperimentere og arbejde med materialer i alle afskygninger."
       Link=""
     />
 
     <Department
-      Img="https://cataas.com/cat"
+      Img="../../public/materialConnexion.webp"
       Header="Material Connexion"
       Description="  Materialer skal opleves og røres, derfor er Boksen en stor kontinuerlig walk-in Boks, der indeholder en samling af råmaterialer og giver et indblik i, hvordan et materiale ser ud, følelsen og lugten; før, under og efter det indgår i en proces."
       Link=""
@@ -71,16 +78,16 @@ import Department from "../components/Department.astro";
         <div class="grid">
           <h2 class="red">Upcoming event</h2>
           <UpcomingEvent
-            Header="Event title"
-            Date="24/04/2025"
-            Location="Cirkular lab"
-            Description="  Materialer skal opleves og røres, derfor er Boksen en stor kontinuerlig walk-in Boks, der indeholder en samling af råmaterialer og giver et indblik i, hvordan et materiale ser ud, følelsen og lugten; før, under og efter det indgår i en proces."
-            Link="single.html"
+            Header="Repair Café"
+            Date="2025-05-01"
+            Location="Circular Lab"
+            Description=' Repair Café i Circular Lab hvor vi arbejder med den cirkulære forretningmodel "reparation".'
+            Link="3"
           />
         </div>
         <div class="grid">
           <h2 class="white">calendar</h2>
-          <img src="https://cataas.com/cat" alt="" />
+          <img src="../../public/texture.webp" alt="" />
         </div>
       </div>
       <p>
@@ -602,7 +609,6 @@ import Department from "../components/Department.astro";
     </blockquote>
     <script async src="//www.instagram.com/embed.js"></script>
   </section>
-
 </Layout>
 <style>
   .upcomingEvents {
@@ -636,10 +642,11 @@ import Department from "../components/Department.astro";
     padding: 20px;
   }
   .instagramFeed {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     overflow: auto;
     white-space: nowrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px;
   }
   h2 {
     text-align: center;
@@ -662,10 +669,6 @@ import Department from "../components/Department.astro";
     color: var(--black);
   }
   @media (min-width: 801px) {
-    .instagramFeed {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
     .grid_1-1-1 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
