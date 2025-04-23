@@ -1,32 +1,16 @@
 ---
 //@ts-nocheck
 
-import Layout from '../layouts/Layout.astro';
-const url= "https://ufptkqkooxsifybuvhqa.supabase.co/rest/v1/Circular Lab Events?select=*";
-const key= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmcHRrcWtvb3hzaWZ5YnV2aHFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjg3MzcsImV4cCI6MjA1OTg0NDczN30.vww89uRuhls0B28ao0Z4OCfxZUGLDN1vbA3sysStrOg";
+//https://ufptkqkooxsifybuvhqa.supabase.co
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmcHRrcWtvb3hzaWZ5YnV2aHFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjg3MzcsImV4cCI6MjA1OTg0NDczN30.vww89uRuhls0B28ao0Z4OCfxZUGLDN1vbA3sysStrOg
+import Layout from "../layouts/Layout.astro";
 
 import Department from "../components/Department.astro";
 import UpcomingEvent from "../components/UpcomingEvent.astro";
 import Department from "../components/Department.astro";
-// const url= "https://ufptkqkooxsifybuvhqa.supabase.co/rest/v1/Supabase test?select=*";
-// const key= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmcHRrcWtvb3hzaWZ5YnV2aHFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjg3MzcsImV4cCI6MjA1OTg0NDczN30.vww89uRuhls0B28ao0Z4OCfxZUGLDN1vbA3sysStrOg";
-
-// const options = {
-// 	headers: {
-// 		apikey: key,
-// 	},
-// };
-
-// const data = await fetch(url,options).then((res)=>{return res.json();});
-
-// console.log(data);
-
-// const formatDate = (dateString) =>
-//     new Date(dateString).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
-// 	console.log(formatDate(data[0].event_date));
 ---
 
-<Layout>
+<Layout Title="KEA Cirkular lab">
   <img class="heroImg" src="https://cataas.com/cat" alt="" />
   <section class="hero">
     <div class="max_width">
@@ -602,7 +586,6 @@ import Department from "../components/Department.astro";
     </blockquote>
     <script async src="//www.instagram.com/embed.js"></script>
   </section>
-
 </Layout>
 <style>
   .upcomingEvents {

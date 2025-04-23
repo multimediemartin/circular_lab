@@ -3,6 +3,33 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Button from "../components/Button.astro";
 import DropDown from "../components/DropDown.astro";
+
+//@ts-nocheck
+const url =
+  "https://ufptkqkooxsifybuvhqa.supabase.co/rest/v1/Circular%20Lab%20Events";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmcHRrcWtvb3hzaWZ5YnV2aHFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjg3MzcsImV4cCI6MjA1OTg0NDczN30.vww89uRuhls0B28ao0Z4OCfxZUGLDN1vbA3sysStrOg";
+
+const options = {
+  headers: {
+    apikey: key,
+  },
+};
+
+const data = await fetch(url, options).then((res) => {
+  return res.json();
+});
+
+console.log(data);
+console.log("oirjgwjio");
+
+const formatDate = (dateString) =>
+  new Date(dateString).toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+console.log(formatDate(data[0].event_date));
 ---
 
 <Layout Title="Events">
@@ -16,24 +43,7 @@ import DropDown from "../components/DropDown.astro";
       </p>
       <!-- cards -->
       <div id="cardsContainer">
-        <Card
-          Link="single.html"
-          Header="Event title"
-          Date="22/04/2025"
-          Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla auctor ligula vel sem molestie convallis. Aliquam quam dolor, hendrerit quis imperdiet nec, lacinia in nunc."
-        />
-        <Card
-          Link="single.html"
-          Header="Event title"
-          Date="22/04/2025"
-          Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla auctor ligula vel sem molestie convallis. Aliquam quam dolor, hendrerit quis imperdiet nec, lacinia in nunc."
-        />
-        <Card
-          Link="single.html"
-          Header="Event title"
-          Date="22/04/2025"
-          Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla auctor ligula vel sem molestie convallis. Aliquam quam dolor, hendrerit quis imperdiet nec, lacinia in nunc."
-        />
+        {data.map((product) => <Card {product} />)}
       </div>
       <Button Link="" Text="Load More" Type="one" />
     </div>
@@ -164,65 +174,65 @@ import DropDown from "../components/DropDown.astro";
       <a href=""> circular@kea.dk.</a>
     </p>
   </section>
-</Layout>
 
-<style>
-  @media (min-width: 801px) {
-    #cardsContainer {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+  <style>
+    @media (min-width: 801px) {
+      #cardsContainer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .aboutUs {
+        grid-template-columns: repeat(7, 1fr);
+        /* grid-template-rows: 1fr auto; */
+      }
+      .box1 {
+        grid-column: 1/5;
+        grid-row: 1/2;
+      }
+      .box2 {
+        grid-column: 5/8;
+        grid-row: 1/2;
+      }
+      .box3 {
+        grid-column: 4/8;
+        grid-row: 2/3;
+      }
+      .box4 {
+        grid-column: 1/4;
+        grid-row: 2/3;
+      }
+      .box5 {
+        grid-column: 1/5;
+        grid-row: 3/4;
+      }
+      .box6 {
+        grid-column: 5/8;
+        grid-row: 3/4;
+      }
     }
+
     .aboutUs {
-      grid-template-columns: repeat(7, 1fr);
-      /* grid-template-rows: 1fr auto; */
+      display: grid;
+      gap: 20px;
     }
-    .box1 {
-      grid-column: 1/5;
-      grid-row: 1/2;
+    .upcomingEvents {
+      background-color: var(--blue);
+      color: white;
     }
-    .box2 {
-      grid-column: 5/8;
-      grid-row: 1/2;
+    img {
+      width: 100%;
+      height: 40vw;
+      object-fit: cover;
+      max-height: 300px;
     }
-    .box3 {
-      grid-column: 4/8;
-      grid-row: 2/3;
-    }
-    .box4 {
-      grid-column: 1/4;
-      grid-row: 2/3;
-    }
-    .box5 {
-      grid-column: 1/5;
-      grid-row: 3/4;
-    }
-    .box6 {
-      grid-column: 5/8;
-      grid-row: 3/4;
-    }
-  }
 
-  .aboutUs {
-    display: grid;
-    gap: 20px;
-  }
-  .upcomingEvents {
-    background-color: var(--blue);
-    color: white;
-  }
-  img {
-    width: 100%;
-    height: 40vw;
-    object-fit: cover;
-    max-height: 300px;
-  }
-
-  a {
-    text-decoration: none;
-    color: var(--orange);
-  }
-  h2 {
-    font-family: "Helvetica-neue-LT-Std";
-    margin: 30px 0px 40px 0px;
-  }
-</style>
+    a {
+      text-decoration: none;
+      color: var(--orange);
+    }
+    h2 {
+      font-family: "Helvetica-neue-LT-Std";
+      margin: 30px 0px 40px 0px;
+    }
+  </style>
+</Layout>

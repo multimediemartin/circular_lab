@@ -1,0 +1,113 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.astro';
+//@ts-nocheck
+
+
+
+export async function getStaticPaths() {
+    const url =
+  "https://ufptkqkooxsifybuvhqa.supabase.co/rest/v1/Circular%20Lab%20Events";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmcHRrcWtvb3hzaWZ5YnV2aHFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjg3MzcsImV4cCI6MjA1OTg0NDczN30.vww89uRuhls0B28ao0Z4OCfxZUGLDN1vbA3sysStrOg";
+ 
+  const options = {
+  headers: {
+    apikey: key,
+  },
+};
+  const data = await fetch(url, options).then((res) => {
+  return res.json();
+});
+
+
+
+  return data.map((product) => {
+    return {
+      params: { myProductId: product.id },
+      props: { myProduct: product },
+    };
+  });
+}
+
+// const { id } = Astro.params;
+const { myProduct } = Astro.props;
+
+
+---
+
+<Layout Title={myProduct.event_title}>
+  <section>
+      <Button Link="../events.html" Text=" ← back to list" Type="two" />
+    <h1>{myProduct.event_title}</h1>
+    <div class="grid_2-1">
+      <h2>{myProduct.event_date}, {myProduct.event_start}-{myProduct.event_end}</h2>
+      <h2>{myProduct.event_place}</h2>
+      <div class="right">
+        <img src="https://cataas.com/cat" alt="" />
+      </div>
+      <div class="left">
+        <span set:html={myProduct.event_long_description} />
+
+        <Button Link="" Text="sign up for event" Type="three" />
+      </div>
+    </div>
+    <img class="img" src="https://cataas.com/cat" alt="" />
+  </section>
+
+  <style>
+    h1 {
+      text-align: left;
+      color: var(--black);
+      font-family: "Helvetica-Neue-LT-Std";
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: normal;
+    }
+    h2 {
+      text-align: left;
+      color: var(--orange);
+      font-family: "Helvetica-Neue-LT-Std";
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: normal;
+    }
+    a {
+      text-decoration: none;
+      color: var(--orange);
+    }
+    .img {
+      border-radius: 20px;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      max-height: 428px;
+    }
+    section {
+      max-width: 1034px;
+      margin: 0 auto;
+    }
+    .grid_2-1 {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+  
+    @media (min-width: 801px) {
+      .grid_2-1 {
+        grid-template-columns: 60% 40%;
+      }
+    
+    .left {
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
+    .right {
+      grid-column: 2/3
+      grid-row: 2/3;
+    }
+ 
+}
+  </style>
+</Layout>
