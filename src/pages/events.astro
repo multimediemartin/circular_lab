@@ -1,8 +1,35 @@
 ---
+//@ts-nocheck
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Button from "../components/Button.astro";
 import DropDown from "../components/DropDown.astro";
+
+const url =
+  "https://ufptkqkooxsifybuvhqa.supabase.co/rest/v1/Circular%20Lab%20Events";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmcHRrcWtvb3hzaWZ5YnV2aHFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQyNjg3MzcsImV4cCI6MjA1OTg0NDczN30.vww89uRuhls0B28ao0Z4OCfxZUGLDN1vbA3sysStrOg";
+
+const options = {
+  headers: {
+    apikey: key,
+  },
+};
+
+const data = await fetch(url, options).then((res) => {
+  return res.json();
+});
+
+console.log(data);
+console.log("oirjgwjio");
+
+const formatDate = (dateString) =>
+  new Date(dateString).toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+console.log(formatDate(data[0].event_date));
 ---
 
 <Layout Title="Events">
@@ -16,36 +43,19 @@ import DropDown from "../components/DropDown.astro";
       </p>
       <!-- cards -->
       <div id="cardsContainer">
-        <Card
-          Link="single.html"
-          Header="Event title"
-          Date="22/04/2025"
-          Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla auctor ligula vel sem molestie convallis. Aliquam quam dolor, hendrerit quis imperdiet nec, lacinia in nunc."
-        />
-        <Card
-          Link="single.html"
-          Header="Event title"
-          Date="22/04/2025"
-          Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla auctor ligula vel sem molestie convallis. Aliquam quam dolor, hendrerit quis imperdiet nec, lacinia in nunc."
-        />
-        <Card
-          Link="single.html"
-          Header="Event title"
-          Date="22/04/2025"
-          Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla auctor ligula vel sem molestie convallis. Aliquam quam dolor, hendrerit quis imperdiet nec, lacinia in nunc."
-        />
+        {data.map((product) => <Card {product} />)}
       </div>
       <Button Link="" Text="Load More" Type="one" />
     </div>
   </section>
 
-  <img src="https://cataas.com/cat" alt="" />
+  <img src="dividerPicture.webp" alt="" />
   <section class="whatWeOffer max_width">
     <h2>hvad tilbyder vi?</h2>
     <!-- drop downs -->
     <div class="aboutUs">
       <div class="box1">
-        <DropDown Type="red" Heading="Vejledning">
+        <DropDown Type="red" Heading="Vejledning" Id="Vejledning">
           <p>
             Sidder du med et projekt/eller forløb, hvor I skal tænke cirkulært?
             Er du i tvivl om, hvordan du designer dine produkter, så de er
@@ -67,7 +77,7 @@ import DropDown from "../components/DropDown.astro";
         </DropDown>
       </div>
       <div class="box2">
-        <DropDown Type="white" Heading="Skills">
+        <DropDown Type="white" Heading="Skills" Id="skills">
           <p>
             Cirkularitet handler om nye forretningsmuligheder – men kræver også
             mange værktøjer som reparation, opgraderinger, redesigns og meget
@@ -86,7 +96,7 @@ import DropDown from "../components/DropDown.astro";
         </DropDown>
       </div>
       <div class="box3">
-        <DropDown Type="red" Heading="Ivaeksaetteri">
+        <DropDown Type="red" Heading="Ivaeksaetteri" Id="ivaeksaetteri">
           <p>
             Er du iværksætter med din egen virksomhed, eller en del af KEAs
             Startup Hub, og ønsker at undersøge mulighederne for at gøre din
@@ -102,7 +112,7 @@ import DropDown from "../components/DropDown.astro";
         </DropDown>
       </div>
       <div class="box4">
-        <DropDown Type="white" Heading="Workshop">
+        <DropDown Type="white" Heading="Workshop" Id="workshop">
           <p>
             Er du underviser og har brug for et cirkulært indspark i et forløb
             eller crash course for dine studerende uanset programområde? Er I en
@@ -120,7 +130,7 @@ import DropDown from "../components/DropDown.astro";
         </DropDown>
       </div>
       <div class="box5">
-        <DropDown Type="red" Heading="Foredrag">
+        <DropDown Type="red" Heading="Foredrag" Id="foredrag">
           <p>
             Der sker rigtig meget inden for cirkularitet netop nu. Derfor holder
             vi også løbende foredrag og events med relevante aktører fra
@@ -141,7 +151,7 @@ import DropDown from "../components/DropDown.astro";
         </DropDown>
       </div>
       <div class="box6">
-        <DropDown Type="white" Heading="Forskning">
+        <DropDown Type="white" Heading="Forskning" Id="forskning">
           <p>
             Hos Circular Lab holder vi os opdaterede på den nyeste forskning
             inden for cirkularitet. Mange virksomheder og brancher er netop i
@@ -164,65 +174,66 @@ import DropDown from "../components/DropDown.astro";
       <a href=""> circular@kea.dk.</a>
     </p>
   </section>
-</Layout>
 
-<style>
-  @media (min-width: 801px) {
-    #cardsContainer {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+  <style>
+    @media (min-width: 801px) {
+      #cardsContainer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .aboutUs {
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: 1fr auto;
+        margin-bottom: 20px;
+      }
+      .box1 {
+        grid-column: 1/5;
+        grid-row: 1/2;
+      }
+      .box2 {
+        grid-column: 5/8;
+        grid-row: 1/2;
+      }
+      .box3 {
+        grid-column: 4/8;
+        grid-row: 2/3;
+      }
+      .box4 {
+        grid-column: 1/4;
+        grid-row: 2/3;
+      }
+      .box5 {
+        grid-column: 1/5;
+        grid-row: 3/4;
+      }
+      .box6 {
+        grid-column: 5/8;
+        grid-row: 3/4;
+      }
     }
+
     .aboutUs {
-      grid-template-columns: repeat(7, 1fr);
-      /* grid-template-rows: 1fr auto; */
+      display: grid;
+      gap: 20px;
     }
-    .box1 {
-      grid-column: 1/5;
-      grid-row: 1/2;
+    .upcomingEvents {
+      background-color: var(--blue);
+      color: white;
     }
-    .box2 {
-      grid-column: 5/8;
-      grid-row: 1/2;
+    img {
+      width: 100%;
+      height: 40vw;
+      object-fit: cover;
+      max-height: 300px;
     }
-    .box3 {
-      grid-column: 4/8;
-      grid-row: 2/3;
-    }
-    .box4 {
-      grid-column: 1/4;
-      grid-row: 2/3;
-    }
-    .box5 {
-      grid-column: 1/5;
-      grid-row: 3/4;
-    }
-    .box6 {
-      grid-column: 5/8;
-      grid-row: 3/4;
-    }
-  }
 
-  .aboutUs {
-    display: grid;
-    gap: 20px;
-  }
-  .upcomingEvents {
-    background-color: var(--blue);
-    color: white;
-  }
-  img {
-    width: 100%;
-    height: 40vw;
-    object-fit: cover;
-    max-height: 300px;
-  }
-
-  a {
-    text-decoration: none;
-    color: var(--orange);
-  }
-  h2 {
-    font-family: "Helvetica-neue-LT-Std";
-    margin: 30px 0px 40px 0px;
-  }
-</style>
+    a {
+      text-decoration: none;
+      color: var(--orange);
+    }
+    h2 {
+      font-family: "Helvetica-neue-LT-Std";
+      margin: 30px 0px 40px 0px;
+    }
+  </style>
+</Layout>
