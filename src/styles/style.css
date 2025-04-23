@@ -1,0 +1,84 @@
+/*************** Reset *********************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+html {
+  /* colers */
+  --orange: #ff671f;
+  --dark: #242424;
+  --blue: #003b5c;
+  --red: #ea5045;
+  --white: #ffffff;
+  --black: #000000;
+  /* numbers */
+  --transition: 0.2s;
+}
+section {
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.divider {
+  width: 100%;
+  height: 28px;
+  background-color: var(--orange);
+}
+
+h1 {
+  text-transform: capitalize;
+  text-align: center;
+  font-family: Helvetica-Neue-lt-std, sans-serif;
+}
+h2 {
+  text-transform: capitalize;
+  text-align: center;
+}
+
+p {
+  font-family: Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px; /* 150% */
+  padding: 0px 0px 20px 0px;
+}
+.max_width {
+  max-width: 1034px;
+  margin: 0 auto;
+}
+
+@media (min-width: 801px) {
+  p,
+  dd,
+  dt {
+    font-family: Helvetica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 166.667% */
+  }
+}
+
+/* FONTE */
+
+@font-face {
+  font-family: "GT-Walsheim";
+  src: url(../../public/font/GT-Walsheim-Black-Trial-BF651b7fc736a5b.woff2);
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Helvetica-Neue-lt-std";
+  src: url(../../public/font/helveticaneueltstd_blk.woff2);
+  font-weight: normal;
+}

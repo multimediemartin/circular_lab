@@ -1,0 +1,51 @@
+---
+const Type = Astro.props.Type;
+const Id = Astro.props.Id;
+const Heading = Astro.props.Heading;
+---
+
+<div onclick="toggleDropdown()" class="dropDownContainer">
+  <h3 class={Type}>{Heading}</h3>
+  <div class="dropDownContent">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .red {
+    place-self: center;
+    padding: 10px;
+    background-color: var(--red);
+    color: white;
+    text-transform: uppercase;
+  }
+  .white {
+    place-self: center;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    text-transform: uppercase;
+  }
+  .dropDownContainer {
+    grid-row: span 4;
+    background-color: #003b5c26;
+    border-radius: 20px;
+    padding: 20px;
+    display: grid;
+  }
+  h3 {
+    font-family: GT-Walsheim;
+  }
+  .dropDownContent {
+    padding: 20px 0px;
+    /* display: none; */
+  }
+
+  @media (min-width: 801px) {
+    .dropDownContainer {
+      grid-template-rows: subgrid;
+      height: 100%;
+    }
+  }
+</style>
+<script></script>

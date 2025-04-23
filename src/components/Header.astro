@@ -1,0 +1,173 @@
+---
+
+---
+
+<header>
+  <div class="logo">
+    <a href="index.html">
+      <img src="../../public/CircularLab_ekstern 1.png" alt="Logo" />
+    </a>
+  </div>
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="index.html">Labs</a></li>
+    </ul>
+    <div class="burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu li {
+    margin-right: 20px;
+  }
+
+  .menu li:last-child {
+    margin-right: 0;
+  }
+
+  .menu a {
+    display: block;
+    color: #000000;
+    text-align: right;
+    font-family: "Helvetica-Neue-LT-Std";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    text-align: end;
+    text-decoration: none;
+  }
+
+  .menu a:hover {
+    color: #ff671f;
+  }
+
+  .burger {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .burger .line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--orange);
+    margin-bottom: 5px;
+    transition: 0.2s linear;
+  }
+  .burger {
+    display: none;
+  }
+  @media screen and (max-width: 800px) {
+    .menu {
+      display: none;
+    }
+
+    .menu a {
+      color: white;
+    }
+    .menu a:hover {
+      color: black;
+    }
+
+    .burger {
+      display: block;
+      z-index: 2;
+    }
+
+    .burger.active .line {
+      background-color: black;
+    }
+    .burger.active .line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+      transition: 0.2s linear;
+    }
+
+    .burger.active .line:nth-child(2) {
+      opacity: 0;
+      transition: 0.15s linear;
+    }
+
+    .burger.active .line:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+      transition: 0.2s linear;
+    }
+
+    nav.active .menu {
+      display: block;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 1;
+      background: var(--orange);
+    }
+
+    nav.active .menu li {
+      margin: 10px 20px;
+    }
+
+    nav.active .menu a {
+      font-size: 24px;
+    }
+    header.active {
+      background-color: var(--orange);
+    }
+  }
+</style>
+<script>
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector("nav");
+  const menu = document.querySelector(".menu");
+  const header = document.querySelector("header");
+
+  burger.addEventListener("click", burgerClick);
+  function burgerClick() {
+    burger.classList.toggle("active");
+    nav.classList.toggle("active");
+    header.classList.toggle("active");
+  }
+  menu.addEventListener("click", menuClick);
+  function menuClick() {
+    burger.classList.remove("active");
+    nav.classList.remove("active");
+    header.classList.toggle("active");
+  }
+</script>
